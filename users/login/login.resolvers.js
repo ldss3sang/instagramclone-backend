@@ -1,17 +1,18 @@
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import client from "../../client";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import client from '../../client';
 
 export default {
   Mutation: {
     login: async (_, { username, password }) => {
+      console.log('login resolver');
       // find user with args.username
       const user = await client.user.findFirst({ where: { username } });
 
       if (!user) {
         return {
           ok: false,
-          error: "User not found",
+          error: 'User not found',
         };
       }
       // Check password with args.password
@@ -19,7 +20,7 @@ export default {
       if (!passwordOk) {
         return {
           ok: false,
-          error: "Incorrect password",
+          error: 'Incorrect password',
         };
       }
       // issue a tokenand send it to the user

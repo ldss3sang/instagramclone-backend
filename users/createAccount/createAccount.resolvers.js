@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
-import client from "../../client";
+import bcrypt from 'bcrypt';
+import client from '../../client';
 
 export default {
   Mutation: {
@@ -7,6 +7,7 @@ export default {
       _,
       { firstName, lastName, username, email, password }
     ) => {
+      console.log('create account resolver');
       try {
         // check if username or email are already on DB.
         const existingUser = await client.user.findFirst({
@@ -23,7 +24,7 @@ export default {
         });
 
         if (existingUser) {
-          throw new Error("This username/email is already taken.");
+          throw new Error('This username/email is already taken.');
         }
         // hash password
         const uglyPassword = await bcrypt.hash(password, 10);
