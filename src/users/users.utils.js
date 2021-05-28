@@ -31,5 +31,5 @@ export const protectedResolver =
       };
     }
 
-    return ourResolver(root, agrs, context, info);
+    return ourResolver(root, args, context, info);
   };
