@@ -11,7 +11,8 @@ Instgram Clone Backend
 - [x] Change Avatar (Image Upload)
 - [x] Follow User
 - [x] Unfollow User
-- [ ] See Followers and See Following with Pagination
+- [x] See Followers with Pagination
+- [x] See Following with Pagination
 - [ ] Computed Fields
 - [ ] Search Users
 
